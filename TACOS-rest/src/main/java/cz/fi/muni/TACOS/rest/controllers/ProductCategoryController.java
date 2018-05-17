@@ -50,6 +50,15 @@ public class ProductCategoryController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/filter/leaf")
+	public List<ProductCategoryDTO> getLeafProductCategories() {
+		log.debug("rest getLeafProductCategories()");
+
+		return productCategoryFacade.getLeafCategories();
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
 	public ProductCategoryDTO findProductCategoryById(@PathParam("id") Long id) {
 		log.debug("rest findProductCategoryById({})", id);
